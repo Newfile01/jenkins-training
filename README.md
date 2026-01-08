@@ -17,7 +17,7 @@ sh install-docker.sh --dry-run
 sudo sh install-docker.sh
 ```
 Then add your current user to docker's group
-On an Ubuntu Linux VM with a user called ubuntu use this command after installation 👉🏽 `sudo usermod -aG docker ubuntu`
+On an Ubuntu Linux VM with a user called ubuntu use this command after installation 👉 `sudo usermod -aG docker ubuntu`
 
 Logout & reconnect to be able to use docker
 
@@ -27,7 +27,7 @@ Second use this script
 curl -SL https://github.com/docker/compose/releases/download/v5.0.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
-You can check docker-compose execution with 👉🏽 `sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose`
+You can check docker-compose execution with 👉 `sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose`
 
 You should now be ready to run Jenkins installation process
 
