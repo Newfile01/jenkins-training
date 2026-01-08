@@ -18,7 +18,9 @@ sudo sh install-docker.sh
 ```
 Then add your current user to docker's group
 On an Ubuntu Linux VM with a user called ubuntu use this command after installation 👇🏽 
-`sudo usermod -aG ubuntu docker`
+`sudo usermod -aG docker ubuntu`
+
+Logout & reconnect to be able to use docker
 
 ### 🎏 Docker Compose install
 Second use this script
@@ -35,4 +37,30 @@ To start use those commands in a VM with docker & docker-compose isntalled 👇�
 git clone https://github.com/Newfile01/jenkins-training.git
 cd jenkins-training/
 docker compose up -d
+docker exec jenkins-training-jenkins-1 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
+Here :
+  - `jenkins-training-jenkins-1`is container name, accessible with `docker ps`command
+  - `cat /var/jenkins_home/secrets/initialAdminPassword` allow to show inside the container the password requested to launch Jenkins admin-level installation
+
+Be sure not to have any process using ports 8080, 443 and 50000 before running this commande.
+If there's any you will have to kill them before trying again or changing ports in the compose file.
+### Find and kill process
+On Ubuntu :
+```bash
+sudo apt update && sudo apt install -y net-tools psmisc
+ss -tulnp || sudo netstat -tulnp
+ps XXX
+kill XXX
+```
+
+On CentOS :
+```bash
+yum install psmisc
+fuser 50000/tcp
+ps XXX
+kill XXX
+```
+
+
+
